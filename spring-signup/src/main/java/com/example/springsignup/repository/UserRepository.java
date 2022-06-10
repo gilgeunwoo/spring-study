@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @org.springframework.stereotype.Repository
 public interface UserRepository extends CrudRepository<Entity, Long> {
-
     Optional<Entity> findByAccountId(String accountId);
 }

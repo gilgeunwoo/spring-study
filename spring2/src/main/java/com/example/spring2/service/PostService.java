@@ -3,6 +3,7 @@ package com.example.spring2.service;
 import com.example.spring2.entity.Post;
 import com.example.spring2.entity.repository.PostRepository;
 import com.example.spring2.payload.request.PostRequest;
+import com.example.spring2.payload.request.SignupRequest;
 import com.example.spring2.payload.response.PostResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
