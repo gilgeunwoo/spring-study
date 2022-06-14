@@ -9,7 +9,9 @@ spring:
     hibernate:
       ddl-auto: update
 
-  security:
-    user:
-      name: user
-      password: 1111
+  jwt:
+    header:
+    prefix:
+    exp:
+      access:
+      refresh:

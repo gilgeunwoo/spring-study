@@ -18,7 +18,8 @@ public class LoginService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public String logIn(LoginRequest loginRequest) {
+    public void logIn(LoginRequest loginRequest) {
+
         Member member = memberRepository.findByEmail(loginRequest.getEmail())
                 .orElseThrow(RuntimeException::new);
 
@@ -26,6 +27,7 @@ public class LoginService {
             throw new RuntimeException();
         }
 
-        return "success!";
+
+
     }
 }
