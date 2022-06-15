@@ -1,14 +1,12 @@
-package com.example.spring2.payload.response;
+package com.example.spring2.dto.request;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@Builder
-public class SignupResponse {
+public class SignupRequest {
 
     private String email;
     private String password;

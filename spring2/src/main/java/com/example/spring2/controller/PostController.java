@@ -3,9 +3,8 @@ package com.example.spring2.controller;
 import com.example.spring2.entity.Post;
 import com.example.spring2.entity.repository.MemberRepository;
 import com.example.spring2.entity.repository.PostRepository;
-import com.example.spring2.payload.request.PostRequest;
-import com.example.spring2.payload.request.SignupRequest;
-import com.example.spring2.payload.response.PostResponse;
+import com.example.spring2.dto.request.PostRequest;
+import com.example.spring2.dto.response.PostResponse;
 import com.example.spring2.service.PostService;
 import com.example.spring2.service.SignupService;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +28,7 @@ public class PostController {
         return service.create(postRequest);
     }
 
-    @PatchMapping("{id}")
+    @PutMapping("/edit/{id}")
     public void update(@RequestBody PostRequest request, @PathVariable Long id) {
         service.update(request, id);
     }

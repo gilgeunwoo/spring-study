@@ -1,12 +1,8 @@
 package com.example.spring2.entity;
 
 
-import com.example.spring2.payload.request.SignupRequest;
-import jdk.jfr.StackTrace;
 import lombok.*;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 
 @Getter @Setter

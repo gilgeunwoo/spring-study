@@ -1,4 +1,4 @@
-package com.example.spring2.payload.response;
+package com.example.spring2.dto.response;
 
 
 import lombok.AllArgsConstructor;

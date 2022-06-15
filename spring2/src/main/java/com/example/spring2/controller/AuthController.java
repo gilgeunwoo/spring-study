@@ -1,7 +1,7 @@
 package com.example.spring2.controller;
 
-import com.example.spring2.payload.request.LoginRequest;
-import com.example.spring2.payload.request.SignupRequest;
+import com.example.spring2.dto.request.LoginRequest;
+import com.example.spring2.dto.request.SignupRequest;
 import com.example.spring2.service.LoginService;
 import com.example.spring2.service.SignupService;
 import lombok.RequiredArgsConstructor;

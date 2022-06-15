@@ -3,7 +3,7 @@ package com.example.spring2.service;
 
 import com.example.spring2.entity.Member;
 import com.example.spring2.entity.repository.MemberRepository;
-import com.example.spring2.payload.request.SignupRequest;
+import com.example.spring2.dto.request.SignupRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

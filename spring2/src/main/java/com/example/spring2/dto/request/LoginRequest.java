@@ -1,4 +1,4 @@
-package com.example.spring2.payload.request;
+package com.example.spring2.dto.request;
 
 
 import lombok.Getter;
