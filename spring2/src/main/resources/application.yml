@@ -10,8 +10,8 @@ spring:
       ddl-auto: update
 
   jwt:
-    header:
-    prefix:
+    header: ${jwt.header}
+    prefix: ${jwt.prefix}
     exp:
-      access:
-      refresh:
+      access: ${jwt.exp.access}
+      refresh: ${jwt.exp.refresh}
