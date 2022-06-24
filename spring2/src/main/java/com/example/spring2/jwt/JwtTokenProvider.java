@@ -22,4 +22,6 @@ public class JwtTokenProvider {
     @Value("${jwt.exp.refresh}")
     private Long REFRESH_TOKEN_EXPIRATION_TIME;
 
+
+
 }
