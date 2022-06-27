@@ -12,4 +12,5 @@ public class SignupResponse {
 
     private String email;
     private String password;
+    private String username;
 }

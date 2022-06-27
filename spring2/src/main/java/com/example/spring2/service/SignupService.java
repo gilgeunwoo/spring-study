@@ -24,6 +24,7 @@ public class SignupService {
         }
 
         Member member = Member.builder()
+                .username(signupRequest.getUsername())
                 .email(signupRequest.getEmail())
                 .password(passwordEncoder.encode(signupRequest.getPassword()))
                 .build();

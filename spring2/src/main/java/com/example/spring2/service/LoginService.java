@@ -20,7 +20,7 @@ public class LoginService {
     @Transactional
     public void logIn(LoginRequest loginRequest) {
 
-        Member member = memberRepository.findByEmail(loginRequest.getEmail())
+        Member member = memberRepository.findByUsername(loginRequest.getUsername())
                 .orElseThrow(RuntimeException::new);
 
         if (!passwordEncoder.matches(loginRequest.getPassword(), member.getPassword())) {
