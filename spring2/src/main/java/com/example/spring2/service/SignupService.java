@@ -1,8 +1,8 @@
 package com.example.spring2.service;
 
 
-import com.example.spring2.entity.Member;
-import com.example.spring2.entity.repository.MemberRepository;
+import com.example.spring2.entity.User;
+import com.example.spring2.entity.repository.UserRepository;
 import com.example.spring2.dto.request.SignupRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 @Service
 public class SignupService {
 
-    private final MemberRepository memberRepository;
+    private final UserRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
@@ -23,7 +23,7 @@ public class SignupService {
             throw new RuntimeException();
         }
 
-        Member member = Member.builder()
+        User member = User.builder()
                 .username(signupRequest.getUsername())
                 .email(signupRequest.getEmail())
                 .password(passwordEncoder.encode(signupRequest.getPassword()))

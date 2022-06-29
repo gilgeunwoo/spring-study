@@ -1,7 +1,7 @@
 package com.example.spring2.controller;
 
 import com.example.spring2.entity.Post;
-import com.example.spring2.entity.repository.MemberRepository;
+import com.example.spring2.entity.repository.UserRepository;
 import com.example.spring2.entity.repository.PostRepository;
 import com.example.spring2.dto.request.PostRequest;
 import com.example.spring2.dto.response.PostResponse;
@@ -20,7 +20,7 @@ public class PostController {
 
     private final PostRepository postRepository;
     private final PostService service;
-    private final MemberRepository memberRepository;
+    private final UserRepository memberRepository;
     private final SignupService signupService;
 
     @PostMapping("/post")

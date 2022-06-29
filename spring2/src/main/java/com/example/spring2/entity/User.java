@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Member {
+public class User {
 
     @Id
     @Column

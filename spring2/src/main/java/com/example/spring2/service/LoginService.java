@@ -1,8 +1,8 @@
 package com.example.spring2.service;
 
 
-import com.example.spring2.entity.Member;
-import com.example.spring2.entity.repository.MemberRepository;
+import com.example.spring2.entity.User;
+import com.example.spring2.entity.repository.UserRepository;
 import com.example.spring2.dto.request.LoginRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,13 +14,13 @@ import javax.transaction.Transactional;
 @Service
 public class LoginService {
 
-    private final MemberRepository memberRepository;
+    private final UserRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public void logIn(LoginRequest loginRequest) {
 
-        Member member = memberRepository.findByUsername(loginRequest.getUsername())
+        User member = memberRepository.findByUsername(loginRequest.getUsername())
                 .orElseThrow(RuntimeException::new);
 
         if (!passwordEncoder.matches(loginRequest.getPassword(), member.getPassword())) {
