@@ -22,7 +22,6 @@ public class RefreshToken {
 
     public RefreshToken update(Long refreshExp) {
         this.refreshTokenExpiration = refreshExp;
-
         return this;
     }
 }

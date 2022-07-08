@@ -7,7 +7,7 @@ import com.example.spring2.exception.InvalidTokenException;
 import com.example.spring2.service.CustomUserDetailsService;
 import io.jsonwebtoken.*;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -107,6 +107,7 @@ public class JwtTokenProvider {
                     .setSigningKey(SECRET_KEY)
                     .parseClaimsJws(refreshToken)
                     .getBody();
+
             return claims.get("type").equals("refresh") && !claims.getExpiration().before(new Date());
         } catch (MalformedJwtException | UnsupportedJwtException e) {
             throw IncorrectTokenException.EXCEPTION;

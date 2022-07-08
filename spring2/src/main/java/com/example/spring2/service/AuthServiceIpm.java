@@ -1,5 +1,6 @@
 package com.example.spring2.service;
 
+import com.example.spring2.dto.request.LoginRequest;
 import com.example.spring2.dto.request.SignupRequest;
 import com.example.spring2.dto.response.TokenResponse;
 import com.example.spring2.entity.RefreshToken;
@@ -7,11 +8,13 @@ import com.example.spring2.entity.Role;
 import com.example.spring2.entity.User;
 import com.example.spring2.entity.repository.RefreshTokenRepository;
 import com.example.spring2.entity.repository.UserRepository;
+import com.example.spring2.exception.InvalidPasswordException;
 import com.example.spring2.exception.InvalidTokenException;
 import com.example.spring2.exception.RefreshTokenNotFoundException;
+import com.example.spring2.exception.UserNotFoundException;
 import com.example.spring2.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,16 +42,27 @@ public class AuthServiceIpm implements AuthService {
     }
 
     @Transactional
+    public TokenResponse signin(LoginRequest loginRequest) {
+        User user = userRepository.findByUsername(loginRequest.getUsername())
+                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
+        if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword()))
+            throw InvalidPasswordException.EXCEPTION;
+
+        return createToken(loginRequest.getUsername());
+    }
+
+    @Transactional
     public TokenResponse createToken(String username) {
         String accessToken = jwtTokenProvider.createAccessToken(username);
         String refreshToken = jwtTokenProvider.createRefreshToken(username);
 
-        refreshTokenRepository.save(
-                RefreshToken.builder()
-                        .username(username)
-                        .refreshToken(refreshToken)
-                        .refreshTokenExpiration(REFRESH_TOKEN_EXPIRATION_TIME)
-                        .build());
+        refreshTokenRepository.save(RefreshToken.builder()
+                .username(username)
+                .refreshToken(refreshToken)
+                .refreshTokenExpiration(REFRESH_TOKEN_EXPIRATION_TIME)
+                .build());
+
+        )
 
         return new TokenResponse(accessToken, refreshToken);
     }
