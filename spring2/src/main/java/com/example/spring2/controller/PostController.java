@@ -1,12 +1,10 @@
 package com.example.spring2.controller;
 
 import com.example.spring2.entity.Post;
-import com.example.spring2.entity.repository.UserRepository;
 import com.example.spring2.entity.repository.PostRepository;
 import com.example.spring2.dto.request.PostRequest;
 import com.example.spring2.dto.response.PostResponse;
 import com.example.spring2.service.PostService;
-import com.example.spring2.service.SignupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +18,6 @@ public class PostController {
 
     private final PostRepository postRepository;
     private final PostService service;
-    private final UserRepository memberRepository;
-    private final SignupService signupService;
 
     @PostMapping("/post")
     public String create(@RequestBody PostRequest postRequest) {

@@ -10,5 +10,4 @@ import lombok.Getter;
 public class PostResponse {
     private String title;
     private String contents;
-    private String a;
 }
